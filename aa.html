@@ -220,6 +220,49 @@ button{font-family:inherit}
 .net-pill{display:inline-flex;align-items:center;gap:6px;background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700;color:var(--text-main);pointer-events:none;white-space:nowrap}
 .net-pill i{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
 #netGame{margin-top:4px}
+/* MP-12: PHÒNG PvP ONLINE */
+.btn-pvp{width:100%;height:34px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#4f46e5);border:1.5px solid #a78bfa;color:#fff;font-size:12px;font-weight:800;letter-spacing:.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 0 12px rgba(124,58,237,.5)}
+.btn-pvp:active{transform:scale(.95)}
+.room-screen{position:fixed;inset:0;z-index:950;background:radial-gradient(circle at 50% 30%,#111c38 0%,#050a16 75%);display:none;flex-direction:column;padding:var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);gap:6px}
+.room-screen.active{display:flex}
+.rs-head{display:flex;align-items:center;gap:8px}
+.rs-title{font-size:14px;font-weight:900;color:var(--accent-neon);letter-spacing:1px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rs-code{font-size:15px;font-weight:900;color:var(--gold-yellow);background:rgba(251,191,36,.12);border:1px dashed var(--gold-yellow);border-radius:8px;padding:1px 8px;letter-spacing:3px;cursor:pointer}
+.rs-body{flex:1;min-height:0;display:flex;gap:8px}
+.rs-left{flex:1.25;min-width:0;display:flex;flex-direction:column;gap:6px;overflow-y:auto}
+.rs-right{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.rs-box{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:12px;padding:8px}
+.rs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.rs-mem{position:relative;background:rgba(30,41,59,.75);border:1.5px solid rgba(148,163,184,.35);border-radius:10px;padding:5px 2px;text-align:center;min-width:0}
+.rs-mem.you{border-color:#fbbf24;box-shadow:0 0 10px rgba(251,191,36,.45)}
+.rs-mem.empty{opacity:.45;border-style:dashed}
+.rs-mem.bot{border-color:#7f1d1d}
+.rs-ava{font-size:22px;line-height:1.1}
+.rs-nm{font-size:10px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 3px}
+.rs-sub{font-size:9px;color:var(--text-muted)}
+.rs-x{position:absolute;top:1px;right:2px;background:rgba(239,68,68,.85);color:#fff;border:0;border-radius:50%;width:15px;height:15px;font-size:9px;line-height:15px;cursor:pointer}
+.rs-cfg{display:grid;grid-template-columns:auto 1fr;gap:5px 8px;align-items:center;font-size:11px}
+.rs-step{display:flex;align-items:center;gap:6px}
+.rs-step button,.rs-tg{background:#1e293b;border:1px solid var(--panel-border);color:#fff;border-radius:8px;min-width:26px;height:24px;font-weight:900;cursor:pointer;padding:0 8px}
+.rs-step button:disabled,.rs-tg:disabled{opacity:.4}
+.rs-tg.on{background:#0e7490;border-color:var(--accent-neon)}
+.rs-sel{background:#1e293b;border:1px solid var(--panel-border);color:#fff;border-radius:8px;height:26px;font-size:11px;max-width:100%}
+.rs-chat{flex:1;min-height:0;display:flex;flex-direction:column;gap:5px}
+.rs-chatlog{flex:1;min-height:36px;overflow-y:auto;background:rgba(0,0,0,.3);border-radius:8px;padding:5px;font-size:11px;user-select:text;-webkit-user-select:text}
+.rs-foot{display:flex;gap:8px;align-items:center}
+.rs-foot .grow{flex:1;font-size:10px;color:var(--text-muted)}
+.rs-big{padding:9px 22px;border-radius:12px;border:2px solid #fdba74;color:#fff;font-weight:900;font-size:14px;letter-spacing:1px;cursor:pointer;background:var(--btn-start-bg);box-shadow:0 0 14px var(--btn-start-glow)}
+.rs-big.alt{background:linear-gradient(135deg,#0284c7,#0369a1);border-color:#38bdf8;box-shadow:none}
+.rs-big:disabled{background:#334155;border-color:#475569;box-shadow:none;color:#94a3b8}
+.rs-teams{display:flex;gap:8px}
+.rs-team{flex:1;min-width:0}
+.rs-team h4{font-size:11px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+.rs-team .rs-grid{grid-template-columns:repeat(2,1fr)}
+.rm-row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:10px;background:rgba(30,41,59,.55);border:1px solid rgba(255,255,255,.08);margin-bottom:5px}
+.rm-row .mi{font-size:22px}
+.rm-row .grow{flex:1;min-width:0}
+.rm-row.full{opacity:.55}
+.name-in{width:100%;background:#1e293b;border:1px solid var(--panel-border);color:#fff;border-radius:8px;padding:8px;font-size:14px;margin:8px 0}
 </style>
 </head>
 <body>
@@ -238,7 +281,7 @@ button{font-family:inherit}
   <header class="top-bar">
     <div class="user-profile" onclick="openPanel('profile')">
       <div class="avatar-wrapper"><span class="avatar-icon">🧑</span><span class="level-badge" id="userLevelBadge">1</span></div>
-      <div class="user-info"><span class="username">Ngọc Tùy</span><div class="exp-bar-bg"><div class="exp-bar-fill" id="expFill"></div></div></div>
+      <div class="user-info"><span class="username" id="userName"></span><div class="exp-bar-bg"><div class="exp-bar-fill" id="expFill"></div></div></div>
     </div>
     <div class="currencies">
       <div class="currency-item"><span>⚡</span><span id="valEnergy">100/100</span><button class="btn-add" onclick="addCurrency('energy')">+</button></div>
@@ -287,12 +330,13 @@ button{font-family:inherit}
         <span style="color:var(--text-muted)">🔄</span>
       </div>
       <div class="team-status"><span id="modeInfo"></span></div>
+      <button class="btn-pvp" onclick="roomOpen()">🎮 PHÒNG PvP ONLINE · tối đa 8 người</button>
       <button class="btn-start-game" onclick="startMatchmaking()"><span>XUẤT TRẬN</span><span style="font-size:11px;opacity:.85">⚡10</span></button>
     </section>
   </main>
 
   <footer class="bottom-bar">
-    <div class="chat-preview" onclick="openPanel('chat')"><span class="chat-channel">[Thế Giới]</span><span class="chat-text" id="chatMessagePreview">Hệ thống: Chào mừng Ngọc Tùy gia nhập chiến trường!</span></div>
+    <div class="chat-preview" onclick="openPanel('chat')"><span class="chat-channel">[Thế Giới]</span><span class="chat-text" id="chatMessagePreview">Hệ thống: Chào mừng bạn đến chiến trường!</span></div>
     <div class="ping-status" id="pingStatus"><span class="ping-dot" id="pingDot"></span><span id="pingTxt">-- ms</span></div><!-- MP-2 -->
   </footer>
 </div>
@@ -355,6 +399,53 @@ button{font-family:inherit}
 
 <div class="toast-notification" id="toast"></div>
 
+<!-- ============ PHÒNG PvP ONLINE (MP-13) ============ -->
+<div class="room-screen" id="roomScreen">
+  <div class="rs-head">
+    <button class="top-btn" id="rvClose" onclick="roomClose()">✕</button>
+    <div class="rs-title" id="rvTitle">🎮 PHÒNG PvP ONLINE</div>
+    <span class="rs-code" id="rvCode" style="display:none" onclick="roomCopyCode()"></span>
+  </div>
+  <!-- Sảnh: tạo / vào phòng -->
+  <div id="rvHub" style="display:none;flex-direction:column;gap:8px;flex:1;min-height:0;overflow-y:auto">
+    <div class="rs-box">
+      <div style="font-weight:800;color:var(--accent-neon);font-size:12px;margin-bottom:6px">TẠO PHÒNG MỚI</div>
+      <select class="rs-sel" id="rcMode" style="width:100%;height:32px;margin-bottom:6px" onchange="rcfMode(this.value)"></select>
+      <div class="rs-cfg">
+        <span>Tổng chiến binh</span><div class="rs-step"><button onclick="rcfStep('size',-1)">−</button><b id="rcSize">8</b><button onclick="rcfStep('size',1)">+</button></div>
+        <span>Bot thêm</span><div class="rs-step"><button onclick="rcfStep('bots',-1)">−</button><b id="rcBots">0</b><button onclick="rcfStep('bots',1)">+</button></div>
+        <span>Tự điền bot</span><button class="rs-tg" id="rcFill" onclick="rcfToggle('fill')">TẮT</button>
+        <span>Cân bằng chỉ số</span><button class="rs-tg" id="rcFair" onclick="rcfToggle('fair')">BẬT</button>
+        <span>Phòng riêng (ẩn)</span><button class="rs-tg" id="rcPriv" onclick="rcfToggle('priv')">TẮT</button>
+      </div>
+      <button class="rs-big" style="width:100%;margin-top:8px" onclick="roomCreate()">TẠO PHÒNG</button>
+    </div>
+    <div class="rs-box" style="display:flex;gap:6px;align-items:center">
+      <input id="rjCode" maxlength="4" placeholder="MÃ PHÒNG" class="name-in" style="margin:0;text-transform:uppercase;letter-spacing:3px;font-weight:800;text-align:center">
+      <button class="rs-big alt" onclick="roomJoinCode()">VÀO</button>
+    </div>
+    <div class="rs-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><b style="font-size:12px;color:var(--accent-neon)">PHÒNG CÔNG KHAI</b><button class="rs-tg" onclick="roomListReq()">↻ Làm mới</button></div>
+      <div id="rvList"></div>
+    </div>
+  </div>
+  <!-- Trong phòng -->
+  <div id="rvRoom" class="rs-body" style="display:none">
+    <div class="rs-left">
+      <div class="rs-box"><div class="rs-grid" id="rvMem"></div></div>
+      <div class="rs-box rs-chat" style="min-height:120px">
+        <div class="rs-chatlog" id="rvChatLog"></div>
+        <div style="display:flex;gap:6px"><input id="rvChatIn" class="name-in" style="margin:0;height:30px;font-size:12px" maxlength="100" placeholder="Nhắn trong phòng..." onkeydown="if(event.key==='Enter')roomChatSend()"><button class="rs-tg" onclick="roomChatSend()">Gửi</button></div>
+      </div>
+    </div>
+    <div class="rs-right">
+      <div class="rs-box" id="rvCfg"></div>
+      <div class="rs-box" id="rvInfo" style="font-size:10px;color:var(--text-muted)"></div>
+      <div class="rs-foot" id="rvBtns" style="flex-wrap:wrap"></div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ==================================================================
    UTILS
@@ -367,7 +458,7 @@ const angTo=(a,b)=>Math.atan2(b.y-a.y,b.x-a.x);
 const angDiff=(a,b)=>{let d=a-b;while(d>Math.PI)d-=Math.PI*2;while(d<-Math.PI)d+=Math.PI*2;return d};
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const fmt=n=>Math.floor(n).toLocaleString();
-const PLAYER_NAME='Ngọc Tùy';
+let PLAYER_NAME='Người Chơi'; /* MP-15: tên lấy từ S.name (đổi được trong Hồ Sơ) */
 const HUMAN_ICON='🧑', BOT_ICON='🤖';
 
 /* ==================================================================
@@ -586,16 +677,18 @@ const RANKS=[[0,'Tân Thủ'],[100,'Đồng'],[300,'Bạc'],[600,'Vàng'],[1000,
    SAVE STATE
 ================================================================== */
 const SAVE_KEY='cyberstrike_save_v2';
-function defSave(){return{gold:1000,gems:50,energy:100,exp:0,level:1,cls:'sword',mode:'br',
+function defSave(){return{name:'',gold:1000,gems:50,energy:100,exp:0,level:1,cls:'sword',mode:'br',
  unlocked:{sword:1,fist:1},mech:{sword:1,fist:1,spear:1,mage:1,blade:1},
  skills:{sword:[1,1,1],fist:[1,1,1],spear:[1,1,1],mage:[1,1,1],blade:[1,1,1]},
  stones:5,pet:'drone',pets:{drone:1,bird:1,dragon:1},dailyDay:0,dailyDate:'',mailClaimed:false,
  qp:{upgrade:0,matches:0,kills:0,wins:0,boss:0,horde:0},qc:{},rank:0,race:'nhan',races:{nhan:1,yeu:1},petLv:{drone:1,bird:1,dragon:1,eagle:1,fox:1,titan:1,phoenix:1,kirin:1},items:{amulet:0,potion:0,scroll:0,orb:0},itemOn:{},ach:{},stats:{matches:0,wins:0,kills:0,bossKills:0,hordeWins:0}}}
 let S=defSave();
 function loadSave(){try{const t=localStorage.getItem(SAVE_KEY);if(t){const o=JSON.parse(t);const d=defSave();S=Object.assign(d,o);S.unlocked=Object.assign(d.unlocked,o.unlocked||{});S.mech=Object.assign(d.mech,o.mech||{});S.skills=Object.assign(d.skills,o.skills||{});S.pets=Object.assign(d.pets,o.pets||{});S.petLv=Object.assign(d.petLv,o.petLv||{});S.races=Object.assign(d.races,o.races||{});S.qp=Object.assign(d.qp,o.qp||{});S.stats=Object.assign(d.stats,o.stats||{});if(!MODES[S.mode])S.mode='br';}}catch(e){}}
-function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S))}catch(e){}}
+function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));pvpLdDebounce()}catch(e){}}
 loadSave();
 S.gear=S.gear||{};S.eq=S.eq||{};S.diff=S.diff||2;
+if(typeof S.name!=='string'||!S.name.trim()){S.name='Chiến Binh'+Math.floor(1000+Math.random()*9000)}
+S.name=S.name.replace(/[<>&"'`]/g,'').trim().slice(0,20)||'Chiến Binh';PLAYER_NAME=S.name;save();
 CLS_KEYS.forEach(k=>{S.mech[k]=1;S.skills[k]=[1,1,1]});for(const k in PETS)S.petLv[k]=5; /* đã bỏ nâng cấp: cố định chỉ số */
 let sfxEnabled=true;
 const expNeed=l=>100+l*60;
@@ -642,7 +735,7 @@ function showToast(m){playSFX('click');const t=$('toast');t.innerText=m;t.classL
 const toast=showToast;
 function updateDisplay(){
  $('valGold').innerText=fmt(S.gold);$('valGems').innerText=fmt(S.gems);$('valEnergy').innerText=`${Math.floor(S.energy)}/100`;
- $('userLevelBadge').innerText=S.level;$('expFill').style.width=(S.exp/expNeed(S.level)*100)+'%';
+ $('userLevelBadge').innerText=S.level;$('userName').innerText=PLAYER_NAME;$('expFill').style.width=(S.exp/expNeed(S.level)*100)+'%';
  const c=CLASSES[S.cls];$('heroModel').innerText=c.ico;$('heroTitle').innerText=c.name.toUpperCase();
  $('heroLevelTag').innerText=`${RACES[S.race].ico} ${RACES[S.race].name}`;
  $('petDisplay').innerText=PETS[S.pet].ico;
@@ -694,6 +787,7 @@ const PANELS={
    <div class="sub">ID: 100.001 · Cấp ${S.level}</div>
    <div class="pbar"><i style="width:${S.exp/expNeed(S.level)*100}%"></i></div><div class="sub">EXP ${S.exp}/${expNeed(S.level)}</div></div></div>
   <div style="margin-top:8px">${row('Số trận đã đấu',st.matches)}${row('Chiến thắng',st.wins)}${row('Tổng hạ gục',st.kills)}${row('Cơ giáp đang dùng',CLASSES[S.cls].name)}</div>
+  <button class="btn-action-sm" style="margin-top:10px;margin-right:6px" onclick="renameUi()">✏️ Đổi tên</button>
   <button class="btn-action-sm" style="margin-top:10px;background:#7f1d1d" onclick="if(confirm('Xóa toàn bộ tiến trình?')){localStorage.removeItem(SAVE_KEY);location.reload()}">Đặt lại tiến trình</button>`]},
  mech(){
   const k=viewCls,c=CLASSES[k],own=S.unlocked[k],eq=S.cls===k,st=classStats(k),lv=S.mech[k];
@@ -761,6 +855,8 @@ const PANELS={
   const list=[['Bá Thiên Cơ Giáp',1200],['Cực Quang Tôn',950],['Hắc Phong',720],['Thiên Lang',480],['Vô Ảnh',300],['Sát Tinh',150],[PLAYER_NAME+' (Bạn)',S.rank,1]].sort((a,b)=>b[1]-a[1]);
   let h=`<div class="sub" style="margin-bottom:6px">Hạng của bạn: <b style="color:var(--gold-yellow)">${rankName(S.rank)}</b> · Thắng +25, Top 3 sinh tồn +10, thua −6.</div>`;
   list.forEach((r,i)=>{h+=row(`<span style="${r[2]?'color:var(--accent-neon)':i==0?'color:var(--gold-yellow)':''}">${i+1}. ${r[0]}</span>`,r[1]+' Pts')});
+  if(!PVX.board){if(NET.open)netSend({t:'board'});h+='<div class="sub" style="margin-top:8px">Bảng hạng online: đang tải…</div>'}
+  else{h+='<div class="sub" style="margin-top:8px;color:var(--accent-neon)">🌐 Người chơi đang online (theo hạng):</div>'+PVX.board.map((b,i)=>row(`${i+1}. ${escH(b.n)}`,(b.rk||0)+' Pts')).join('')}
   return['🏆 BẢNG ANH HÙNG',h]},
  shop(){
   let h=`<div class="sub" style="margin-bottom:6px">Vật phẩm đang BẬT sẽ tự dùng 1 cái khi vào trận.</div>`;
@@ -813,10 +909,10 @@ function toggleItem(k){S.itemOn[k]=!S.itemOn[k];save();playSFX('click');refreshP
 function claimAch(id){const a=ACHS.find(x=>x.id===id);if(!a||S.ach[id]||!a.test(S))return;S.ach[id]=1;S.gold+=a.g;S.gems+=a.m;save();playSFX('pick');refreshPanel();showToast('Nhận thưởng thành tựu!')}
 function claimMail(){S.gold+=500;S.gems+=20;S.stones+=3;S.mailClaimed=true;save();playSFX('pick');refreshPanel();showToast('Nhận quà thư thành công!')}
 function claimQuest(id){const q=QUESTS.find(x=>x.id===id);if(S.qp[id]<q.goal||S.qc[id])return;S.qc[id]=1;S.gold+=q.g;S.gems+=q.m;save();playSFX('pick');refreshPanel();showToast('Hoàn thành nhiệm vụ!')}
-const chatLog=['<div style="font-size:11px"><span style="color:var(--accent-neon)">[Hệ Thống]:</span> Chào mừng Ngọc Tùy!</div>'];
-function sendChat(){const i=$('chatInput');if(!i||!i.value.trim())return;const t=i.value.replace(/[<>&]/g,'');chatLog.push(`<div style="font-size:11px"><span style="color:var(--gold-yellow)">${PLAYER_NAME}:</span> ${t}</div>`);i.value='';refreshPanel();const b=$('chatBoxFull');if(b)b.scrollTop=1e5}
+const chatLog=['<div style="font-size:11px"><span style="color:var(--accent-neon)">[Hệ Thống]:</span> Chào mừng bạn đến CyberStrike!</div>'];
+function sendChat(){const i=$('chatInput');if(!i||!i.value.trim())return;const t=i.value.replace(/[<>&]/g,'');if(NET.open){netSend({t:'chat',s:'w',m:t.slice(0,100)});i.value='';return}chatLog.push(`<div style="font-size:11px"><span style="color:var(--gold-yellow)">${PLAYER_NAME}:</span> ${t}</div>`);i.value='';refreshPanel();const b=$('chatBoxFull');if(b)b.scrollTop=1e5}
 const CHAT_MSGS=['Hắc Phong: Ai đấu 2v2 không?','Hệ thống: Chế độ Săn Boss Hư Không đã mở!','Vô Ảnh: Song Đao ẩn thân quá bá!','Thiên Lang: Thương Giáng Thế dọn sạch team địch','Hệ thống: Cường hóa cơ giáp để mạnh hơn nhé!'];
-setInterval(()=>{const m=CHAT_MSGS[Math.floor(Math.random()*CHAT_MSGS.length)];$('chatMessagePreview').innerText=m;chatLog.push(`<div style="font-size:11px;color:#94a3b8">${m}</div>`);if(chatLog.length>40)chatLog.shift()},7000);
+setInterval(()=>{if(NET.open)return;/* MP-15: có máy chủ thì dùng chat thật */const m=CHAT_MSGS[Math.floor(Math.random()*CHAT_MSGS.length)];$('chatMessagePreview').innerText=m;chatLog.push(`<div style="font-size:11px;color:#94a3b8">${m}</div>`);if(chatLog.length>40)chatLog.shift()},7000);
 
 /* ==================================================================
    MATCHMAKING → VS SCREEN → BATTLE
@@ -865,10 +961,10 @@ function buildRoster(mk){
 }
 function vsCard(p,i){
  const c=CLASSES[p.cls],cls=(p.isYou?'human you':p.isBot?'bot':'human')+(p.team===0&&!p.isYou?' ally':'');
- return `<div class="vs-card ${cls}" style="animation-delay:${i*.06}s"><div class="vs-ava">${p.isBot?BOT_ICON:HUMAN_ICON}</div><div class="vs-name">${p.name}</div><span class="vs-tag">${p.isYou?'BẠN':p.isBot?'BOT':'NGƯỜI CHƠI'}</span><div class="vs-cls">${c.glyph} ${c.style}</div>${p.race&&RACES[p.race]?`<div class="vs-cls">${RACES[p.race].ico} ${RACES[p.race].name}</div>`:''}</div>`;
+ return `<div class="vs-card ${cls}" style="animation-delay:${i*.06}s"><div class="vs-ava">${p.isBot?BOT_ICON:HUMAN_ICON}</div><div class="vs-name">${escH(p.name)}</div><span class="vs-tag">${p.isYou?'BẠN':p.isBot?'BOT':'NGƯỜI CHƠI'}</span><div class="vs-cls">${c.glyph} ${c.style}</div>${p.race&&RACES[p.race]?`<div class="vs-cls">${RACES[p.race].ico} ${RACES[p.race].name}</div>`:''}</div>`;
 }
-function showVS(){
- const M=MODES[S.mode],roster=buildRoster(S.mode);pendingRoster=roster;
+function showVS(mk,roster,cb){
+ mk=mk||S.mode;const M=MODES[mk];roster=roster||buildRoster(mk);pendingRoster=roster;
  $('vsTitle').innerText=`${M.ico} ${M.name}`;
  let h='';
  if(M.ffa||M.squads){const n=roster.length,cols=n>12?Math.ceil(n/3):(n>8?6:4),rs=M.squads?roster.slice().sort((a,b)=>a.team-b.team):roster;h=`<div class="vs-grid ${n>12?'compact':''}" style="--cols:${cols}">${rs.map(vsCard).join('')}</div>`}
@@ -884,7 +980,7 @@ function showVS(){
  $('vsScreen').classList.add('active');
  const seq=['3','2','1','CHIẾN!'];
  seq.forEach((t,i)=>vsTimers.push(setTimeout(()=>{$('vsCount').innerText=t;playSFX('count')},2600+i*800)));
- vsTimers.push(setTimeout(()=>{$('vsScreen').classList.remove('active');mmState='idle';startBattle(S.mode,roster)},2600+seq.length*800));
+ vsTimers.push(setTimeout(()=>{$('vsScreen').classList.remove('active');mmState='idle';if(cb)cb(mk,roster);else startBattle(mk,roster)},2600+seq.length*800));
 }
 
 /* ==================================================================
@@ -903,9 +999,10 @@ window.addEventListener('resize',resizeAll);
 
 const ZONE_PH=[{wait:20,shrink:14,to:.62},{wait:14,shrink:12,to:.38},{wait:10,shrink:10,to:.2},{wait:8,shrink:8,to:.07}];
 
-function startBattle(mk,roster){
+function startBattle(mk,roster,net){
  const M=MODES[mk];
- G={M,mk,W:M.world,f:[],p:[],z:[],fx:[],pk:[],ob:[],time:0,over:false,paused:false,running:true,shake:0,zone:null,theme:THEMES[Math.floor(Math.random()*THEMES.length)],dlog:[],petT:2,petBig:6,wave:0,waveT:4,waveDone:false,heal:false,sc:[0,0],hill:null,hillT:0,tk:{0:0,1:0},dmgDealt:0,endDelay:0,banT:0,pkT:0,player:null,cam:{x:0,y:0},orbit:0};
+ G={M,mk,W:M.world,f:[],p:[],z:[],fx:[],pk:[],ob:[],time:0,over:false,paused:false,running:true,shake:0,zone:null,theme:THEMES[Math.floor(Math.random()*THEMES.length)],dlog:[],petT:2,petBig:6,wave:0,waveT:4,waveDone:false,heal:false,sc:[0,0],hill:null,hillT:0,tk:{0:0,1:0},dmgDealt:0,endDelay:0,banT:0,pkT:0,player:null,cam:{x:0,y:0},orbit:0,
+  net:(net&&net.host)?'host':null,fair:!!(net&&net.fair),rin:{},fxOut:(net&&net.host)?[]:null,uidN:0};/* MP-16: chủ phòng PvP */
  const W=G.W,N=roster.length;
  // spawns
  const sp=[];
@@ -929,7 +1026,7 @@ function startBattle(mk,roster){
   G.ob.push({x,y,r});i++;
  }
  roster.forEach((p,i)=>G.f.push(mkFighter(p,i,sp[i])));
- G.player=G.f[0];
+ G.player=G.f.find(f=>f.isYou)||G.f[0];
  if(M.boss||M.horde)G.f.forEach(f=>{if(f.team===0){f.maxhp=Math.round(f.maxhp*1.45);f.hp=f.maxhp}});
  {const P0=G.player;P0.used=[];
   for(const k in ITEMS){if(S.itemOn[k]&&(S.items[k]||0)>0){S.items[k]--;P0.used.push(ITEMS[k].ico);
@@ -947,30 +1044,46 @@ function startBattle(mk,roster){
  // UI
  $('lobbyContainer').style.visibility='hidden';
  $('gameScreen').classList.add('active');
- $('pauseOverlay').classList.remove('show');$('resultScreen').classList.remove('show');
+ $('pauseOverlay').classList.remove('show');$('resultScreen').classList.remove('show');$('roomScreen').classList.remove('active');
  setupHud();resizeAll();
  G.cam.x=G.player.x;G.cam.y=G.player.y;
  banner(M.zone?'🌪️ ĐẠI CHIẾN SINH TỒN BẮT ĐẦU!':M.boss?'👹 HẠ GỤC CỰ MA!':'⚔️ CHIẾN!',2);
- netJoinRoom(mk==='train'?'lobby':mk); /* MP-4 */
+ if(!G.net)netJoinRoom(mk==='train'?'lobby':mk); /* MP-4 (PvP không dùng kênh chế độ cũ) */
  lastT=performance.now();requestAnimationFrame(loop);
 }
+/* MP-16: loadout của người chơi (mình: lấy từ S; người khác: lấy từ server; phòng cân bằng: chỉ số gốc) */
+const FAIR_LO={lv:1,pl:1,pet:'',eq:[],sk:[1,1,1],race:''};
+function humanLoadout(r,isP,fair){
+ if(fair)return FAIR_LO;
+ if(isP)return{lv:S.mech[r.cls]||1,pl:S.petLv[S.pet]||1,pet:S.pet,eq:Object.keys(S.eq||{}).map(k=>S.eq[k]).filter(id=>id&&S.gear[id]),sk:(S.skills[r.cls]||[1,1,1]).slice(),race:r.race||S.race||''};
+ const L=r.lo||{};
+ return{lv:L.lv||1,pl:L.pl||1,pet:L.pet||'',eq:L.eq||[],sk:L.sk||[1,1,1],race:r.race||''};
+}
 function mkFighter(r,i,pos){
- const c=CLASSES[r.cls],isP=!!r.isYou;
- const lv=isP?S.mech[r.cls]:1;
- const pet=isP?PETS[S.pet]:null;
+ const c=CLASSES[r.cls],isP=!!r.isYou,human=isP||!!r.human,fair=!!(G&&G.fair);
+ const L=human?humanLoadout(r,isP,fair):null;
+ const lv=human?L.lv:1;
+ const pet=human&&L.pet?PETS[L.pet]:null;
  const bm=clamp(.85+S.level*.02,.85,1.3)*[1,.8,1,1.15,1.35][S.diff||2];
- const f={id:i,name:r.name,isBot:r.isBot,isYou:isP,team:r.team,cls:r.cls,c,boss:!!r.boss,x:pos.x,y:pos.y,kx:0,ky:0,mv:{x:0,y:0},r:r.boss?54:22,
-  maxhp:0,hp:0,atk:0,def:0,crit:.05,spdm:1,ult:isP?0:rnd(0,30),facing:rnd(0,Math.PI*2),alive:true,kills:0,deaths:0,place:0,dash:null,lastHit:null,
+ const f={id:i,uid:G?(G.uidN=(G.uidN||0)+1):0,pid:r.pid||null,human,remote:!isP&&!!r.human,name:r.name,isBot:r.isBot,isYou:isP,team:r.team,cls:r.cls,c,boss:!!r.boss,x:pos.x,y:pos.y,kx:0,ky:0,mv:{x:0,y:0},r:r.boss?54:22,
+  maxhp:0,hp:0,atk:0,def:0,crit:.05,spdm:1,ult:human?0:rnd(0,30),facing:rnd(0,Math.PI*2),alive:true,kills:0,deaths:0,place:0,dash:null,lastHit:null,
   cd:{a:0,s1:0,s2:0,ult:0,dash:0},st:{shield:0,stun:0,slow:0,invis:0,berserk:0,haste:0,dmgup:0,inv:1.2},sk:[1,1,1],zoneAcc:0,
   ai:{t:rnd(0,.3),tg:null,strafe:1,wp:null,wpT:0,atkDelay:rnd(.2,.8),atk:rnd(1.5,3)},pulse:0};
- if(isP){const pm=1+.25*((S.petLv[S.pet]||1)-1);f.atk=150+20*(lv-1)+(pet.atk||0)*pm;f.def=80+10*(lv-1)+(pet.def||0)*pm;f.crit+=(pet.crit||0)*pm;f.spdm+=(pet.spd||0)*pm;f.maxhp=Math.round(c.hp+(pet.hp||0)*pm);f.sk=S.skills[r.cls].slice()}
+ if(human){const pm=pet?1+.25*(L.pl-1):1;f.atk=150+20*(lv-1)+(pet?(pet.atk||0)*pm:0);f.def=80+10*(lv-1)+(pet?(pet.def||0)*pm:0);f.crit+=pet?(pet.crit||0)*pm:0;f.spdm+=pet?(pet.spd||0)*pm:0;f.maxhp=Math.round(c.hp+(pet?(pet.hp||0)*pm:0));f.sk=L.sk.slice()}
  else if(f.boss){f.atk=170;f.def=55;f.maxhp=c.hp+Math.round(S.level*250);f.phase=1}
  else{f.atk=150*bm;f.def=80*bm;f.maxhp=Math.round(c.hp*bm)}
  f.dummy=!!r.dummy;f.spar=!!r.spar;
- if(!f.boss&&r.race&&RACES[r.race]){const R=RACES[r.race];f.race=r.race;f.maxhp=Math.round(f.maxhp*(R.hp||1));f.atk*=R.atk||1;f.def*=R.def||1;f.spdm*=R.spd||1;f.crit+=R.crit||0;f.ls=R.ls||0;f.dodge=R.dodge||0;f.thorns=R.thorns||0;f.regen=R.regen||0;f.cdr=R.cdr||0;f.ultRate=R.ultRate||1;if(R.shield)f.st.shield=R.shield}
- if(!isP&&r.pet&&PETS[r.pet]){const p=PETS[r.pet];f.petKey=r.pet;f.maxhp+=Math.round((p.hp||0)*2);f.atk+=(p.atk||0)*2;f.def+=(p.def||0)*2;f.crit+=(p.crit||0)*2;f.spdm+=(p.spd||0)*2;f.pT=rnd(1,2.5);f.pB=rnd(4,8)}
- if(isP){for(const sl in S.eq){const g=GEAR[S.eq[sl]];if(g&&S.gear[S.eq[sl]])applyMods(f,g.m)}}
- else if(r.race&&!r.spar)shuffle(Object.keys(GEAR)).slice(0,[0,1,2,3,4][S.diff||2]).forEach(id=>applyMods(f,GEAR[id].m));
+ const raceK=human?L.race:r.race;
+ if(!f.boss&&raceK&&RACES[raceK]){const R=RACES[raceK];f.race=raceK;f.maxhp=Math.round(f.maxhp*(R.hp||1));f.atk*=R.atk||1;f.def*=R.def||1;f.spdm*=R.spd||1;f.crit+=R.crit||0;f.ls=R.ls||0;f.dodge=R.dodge||0;f.thorns=R.thorns||0;f.regen=R.regen||0;f.cdr=R.cdr||0;f.ultRate=R.ultRate||1;if(R.shield)f.st.shield=R.shield}
+ if(human){
+  if(!isP&&pet){f.petKey=L.pet;f.pT=rnd(1,2.5);f.pB=rnd(4,8)}   /* người chơi từ xa: linh sủng tự bắn như bot (chỉ số đã cộng ở trên) */
+  if(isP){if(!fair)L.eq.forEach(id=>{const g=GEAR[id];if(g)applyMods(f,g.m)})}
+  else if(!fair)L.eq.forEach(id=>{const g=GEAR[id];if(g)applyMods(f,g.m)});
+ }
+ else{
+  if(r.pet&&PETS[r.pet]){const p=PETS[r.pet];f.petKey=r.pet;f.maxhp+=Math.round((p.hp||0)*2);f.atk+=(p.atk||0)*2;f.def+=(p.def||0)*2;f.crit+=(p.crit||0)*2;f.spdm+=(p.spd||0)*2;f.pT=rnd(1,2.5);f.pB=rnd(4,8)}
+  if(r.race&&!r.spar)shuffle(Object.keys(GEAR)).slice(0,[0,1,2,3,4][S.diff||2]).forEach(id=>applyMods(f,GEAR[id].m));
+ }
  f.hp=f.maxhp;return f;
 }
 const enemiesOf=f=>G.f.filter(e=>e.alive&&e.team!==f.team);
@@ -983,7 +1096,7 @@ function nearestEnemy(f,maxD,seeInvis){
 function aimAngle(f){const t=nearestEnemy(f,430);return t?angTo(f,t):f.facing}
 
 /* ---------- effects helpers ---------- */
-function fxPush(o){G.fx.push(o)}
+function fxPush(o){G.fx.push(o);if(G.fxOut&&o.k!=='p'&&G.fxOut.length<400)G.fxOut.push(o)/* MP-16: gửi hiệu ứng cho người xem */}
 function dmgText(x,y,s,col,big){fxPush({k:'txt',x:x+rnd(-8,8),y,s,col,t:0,max:.8,big})}
 function sparks(x,y,col,n){for(let i=0;i<n;i++){const a=rnd(0,Math.PI*2),sp=rnd(60,220);fxPush({k:'p',x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,t:0,max:rnd(.25,.5),col,sz:rnd(2,4)})}}
 function banner(t,sec){const b=$('banner');b.innerText=t;b.classList.add('show');G.banT=sec||2}
@@ -1011,6 +1124,7 @@ function hurt(src,t,dmg,o){
  }
  if(o.slow&&!t.boss)t.st.slow=Math.max(t.st.slow,o.slow);
  if(src){
+  src.dealt=(src.dealt||0)+dmg;
   src.ult=Math.min(100,src.ult+dmg*.08);
   if(src.st.berserk>0)src.hp=Math.min(src.maxhp,src.hp+dmg*.22);
   if(src.ls)src.hp=Math.min(src.maxhp,src.hp+dmg*src.ls);
@@ -1037,7 +1151,7 @@ function die(t,src){
  sparks(t.x,t.y,t.c.color,24);fxPush({k:'ring',x:t.x,y:t.y,R:80,t:0,max:.5,col:t.c.color});
  if(!t.boss&&(!t.minion||Math.random()<.3))G.pk.push({x:t.x,y:t.y,k:'hp',t:0});
  const col=f=>f.team===G.player.team?'#38bdf8':'#f87171';
- if(!(G.M.moba&&(t.minion||(src&&src.minion))))pushFeed(`<span style="color:${src?col(src):'#fbbf24'}">${src?src.name:'Bão'}</span> ➜ <span style="color:${col(t)}">${t.name}</span>`);
+ if(!(G.M.moba&&(t.minion||(src&&src.minion))))pushFeed(`<span style="color:${src?col(src):'#fbbf24'}">${src?escH(src.name):'Bão'}</span> ➜ <span style="color:${col(t)}">${escH(t.name)}</span>`);
  if(G.M.respawn&&!t.minion){t.respawn=G.M.respawn+(G.M.moba?Math.min(10,Math.floor(G.time/40)):0)}
  else{t.place=G.f.filter(f=>f.alive).length+1}
  if(t===G.player){playSFX('die');banner(G.M.respawn?'💀 BẠN ĐÃ BỊ HẠ GỤC':'💀 BẠN ĐÃ BỊ LOẠI',2)}
@@ -1389,7 +1503,7 @@ function updateFighter(f,dt){
  if(f.st.regen>0)f.hp=Math.min(f.maxhp,f.hp+f.maxhp*.03*dt);
  if(f.regen)f.hp=Math.min(f.maxhp,f.hp+f.maxhp*f.regen*dt);
  f.mv.x=0;f.mv.y=0;
- if(f.st.stun<=0&&!f.dash){if(f.isYou)playerControl(f);else if(f.boss)bossAI(f,dt);else if(f.dummy){f.x+=(f.home.x-f.x)*dt*2;f.y+=(f.home.y-f.y)*dt*2}else aiUpdate(f,dt)}
+ if(f.st.stun<=0&&!f.dash){if(f.isYou)playerControl(f);else if(f.remote)remoteControl(f);else if(f.boss)bossAI(f,dt);else if(f.dummy){f.x+=(f.home.x-f.x)*dt*2;f.y+=(f.home.y-f.y)*dt*2}else aiUpdate(f,dt)}
  if(f.dash){
   const D=f.dash;D.t+=dt;f.x+=D.vx*dt;f.y+=D.vy*dt;
   if(D.dmg){for(const e of enemiesOf(f))if(!D.hit.has(e)&&dist(f,e)<D.rad+e.r){D.hit.add(e);hurt(f,e,D.dmg,{kb:70,ang:D.ang})}}
@@ -1495,8 +1609,11 @@ function checkEnd(dt){
  }else{
   const al=G.f.filter(f=>f.alive);
   if(M.ffa){
-   if(!P.alive)endBattle(false,P.place);
-   else if(al.length<=1)endBattle(true,1);
+   if(G.net){if(al.length<=1){const w=al[0];endBattle(!!w&&w===P,w===P?1:P.place)}}   /* PvP: trận tiếp tục khi chủ phòng chết */
+   else{
+    if(!P.alive)endBattle(false,P.place);
+    else if(al.length<=1)endBattle(true,1);
+   }
   }else{
    const ts=teamAlive();
    if(!ts.has(P.team))endBattle(false,0);
@@ -1952,8 +2069,10 @@ let lastT=0;
 function loop(t){
  if(!G||!G.running)return;
  const dt=Math.min(.05,(t-lastT)/1000);lastT=t;
- if(!G.paused)update(dt);
- netTick(t);/* MP-9 */render();requestAnimationFrame(loop);
+ if(G.net==='mirror'){if(G.hudReady&&!G.paused)mirrorUpdate(dt)}   /* MP-16: người xem PvP */
+ else if(!G.paused)update(dt);
+ netTick(t);/* MP-9 */hostTick(t);mirrorInputTick(t);
+ if(G.net!=='mirror'||G.player)render();requestAnimationFrame(loop);
 }
 
 /* ---------- results ---------- */
@@ -1982,16 +2101,17 @@ function showResult(){
  $('resRew').innerHTML=`+${fmt(gold)} 💰 &nbsp; +${exp} EXP ${gems?`&nbsp; +${gems} 💎`:''} &nbsp; +${stones} 🔥${drop}<br><span class="sub">Điểm hạng: ${rp>=0?'+':''}${rp} (${rankName(S.rank)})</span>`;
  $('resultScreen').classList.add('show');
 }
-function endGameUi(){netJoinRoom('lobby');/* MP-5 */if(G){G.running=false}$('gameScreen').classList.remove('active');$('pauseOverlay').classList.remove('show');$('resultScreen').classList.remove('show');$('lobbyContainer').style.visibility='visible';IN.atk=false;IN.jx=IN.jy=0;IN.keys={}}
+function endGameUi(){const pvp=!!(G&&G.net);if(pvp&&G.net==='host'&&G.over)netSend({t:'mend'});/* MP-16 */if(!pvp)netJoinRoom('lobby');/* MP-5 */if(G){G.running=false}$('gameScreen').classList.remove('active');$('pauseOverlay').classList.remove('show');$('resultScreen').classList.remove('show');$('lobbyContainer').style.visibility='visible';IN.atk=false;IN.jx=IN.jy=0;IN.keys={};PVX.q=[];if(RMS.code)roomShow('room')}
 function backToLobby(){endGameUi();updateDisplay()}
-function playAgain(){endGameUi();startMatchmaking()}
-function quitBattle(){endGameUi();updateDisplay();showToast('Đã rời trận (không nhận thưởng)')}
+function playAgain(){if(RMS.code){endGameUi();updateDisplay();return}endGameUi();startMatchmaking()}
+function quitBattle(){if(G&&G.net&&RMS.code){netSend({t:'rl'});rmReset();PVX.myRdy=false;endGameUi();updateDisplay();showToast('Đã rời trận PvP (không nhận thưởng)');roomShow('hub');return}endGameUi();updateDisplay();showToast('Đã rời trận (không nhận thưởng)')}
 function togglePause(){if(!G||G.over)return;G.paused=!G.paused;$('pauseOverlay').classList.toggle('show',G.paused)}
 $('btnPause').addEventListener('click',togglePause);
 
 /* ---------- input ---------- */
 function pressSkill(k){
  if(!G||!G.running||G.paused||G.over)return;
+ if(G.net==='mirror'){if(PVX.q.length<6)PVX.q.push(k);return}   /* MP-16: gửi lệnh kỹ năng cho chủ phòng */
  const P=G.player;if(!P.alive)return;
  useSkill(P,k,aimAngle(P));
 }
@@ -2048,7 +2168,7 @@ function netConnect(){
  NET.ws=ws;
  ws.onopen=()=>{if(NET.ws!==ws)return;NET.open=true;NET.retry=0;netJoinRoom(NET.want);netPing();netHud()};
  ws.onmessage=e=>{if(NET.ws!==ws)return;let d;try{d=JSON.parse(e.data)}catch(_){return}if(d&&typeof d==='object')netOn(d)};
- ws.onclose=()=>{if(NET.ws!==ws)return;NET.open=false;NET.joined=false;NET.ping=null;remotePlayers.clear();netHud();netRetry()};
+ ws.onclose=()=>{if(NET.ws!==ws)return;NET.open=false;NET.joined=false;NET.ping=null;remotePlayers.clear();pvpOnDisconnect();netHud();netRetry()};
  ws.onerror=()=>{try{ws.close()}catch(_){}};
  netHud();
 }
@@ -2063,13 +2183,24 @@ function netOn(d){
  switch(d.t){
   case's':{const r=remotePlayers.get(d.id);if(r){netApply(r,d);r.seen=performance.now()}return}
   case'act':netRemoteAct(d);return;
-  case'welcome':NET.id=d.id;break;
+  case'welcome':NET.id=d.id;pvpHist(d.hist);netSendProfile();break;
   case'joined':
    if(String(d.room).split('#')[0]!==NET.want)break;      // bỏ phản hồi cũ
    NET.room=d.room;NET.joined=NET.want!=='lobby';remotePlayers.clear();
    (Array.isArray(d.players)?d.players:[]).forEach(netUpsert);break;
   case'join':netUpsert(d.p);break;
   case'leave':remotePlayers.delete(d.id);break;
+  case'room':pvpOnRoom(d);break;                     /* MP-16: phòng PvP */
+  case'rlist':pvpOnRlist(d);break;
+  case'rgo':pvpHostBuild(d);break;
+  case'mst':pvpMirrorStart(d);break;
+  case'snap':mirrorSnap(d);break;
+  case'in':hostInput(d);break;
+  case'rleft':hostLeft(d.id);break;
+  case'rclose':pvpOnClose(d.reason);break;
+  case'rerr':toast(String(d.m||'Lỗi'));break;
+  case'chat':pvpOnChat(d);break;
+  case'board':PVX.board=Array.isArray(d.list)?d.list:[];if(curPanel==='rank')refreshPanel();break;
   case'pong':if(typeof d.ts==='number'){const rtt=performance.now()-d.ts;if(rtt>=0&&rtt<1e5)NET.ping=NET.ping==null?rtt:NET.ping*.6+rtt*.4}break;
  }
  if(typeof d.online_count==='number')NET.online=d.online_count;
@@ -2160,9 +2291,333 @@ setInterval(()=>{netPing();netHud()},NET_PING_MS);
 window.addEventListener('pagehide',()=>{try{NET.ws&&NET.ws.close()}catch(_){}});
 /* MP:END */
 
+/* ==================================================================
+   MP-13  PHÒNG PvP TUỲ CHỈNH (host-authoritative)
+   - Chủ phòng chạy toàn bộ mô phỏng (người thật + bot) như trận thường.
+   - Người khác gửi 'in' (di chuyển, đánh, kỹ năng) -> chủ phòng áp dụng.
+   - Chủ phòng gửi 'snap' ~10 lần/giây -> người khác chỉ hiển thị (mirror).
+   - Server chỉ quản lý phòng và chuyển tiếp gói tin.
+================================================================== */
+const PVP_CFG={dm:[2,8,'ffa'],crystal:[2,8,'ffa'],bomb:[2,8,'ffa'],chaos:[2,8,'ffa'],br:[2,8,'ffa'],duel:[2,2,'team'],duo:[4,4,'team'],team:[2,8,'team'],king:[2,8,'team'],moba1:[2,2,'team'],moba3:[2,8,'team'],moba5:[2,8,'team'],boss:[1,8,'coop'],horde:[1,8,'coop'],endless:[1,8,'coop']};
+const PVP_KEYS=Object.keys(PVP_CFG);
+const RMS={code:'',host:'',you:'',mode:'dm',size:8,bots:0,fill:false,fair:true,priv:false,st:'waiting',cap:8,mem:[]};  /* phòng hiện tại (từ server) */
+const RCF={mode:'dm',size:8,bots:0,fill:false,fair:true,priv:false};   /* form tạo phòng */
+const PVX={q:[],iLast:0,hLast:0,chat:[],board:null,ldT:0,rooms:[],online:0,myRdy:false};
+let RVV='hub';
+const has=(o,k)=>typeof k==='string'&&Object.prototype.hasOwnProperty.call(o,k);
+function escH(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c])}
+const pvpKind=m=>(PVP_CFG[m]||PVP_CFG.dm)[2];
+
+/* ---------- hồ sơ & trang bị gửi lên máy chủ ---------- */
+function netSendProfile(){netSend({t:'prof',name:PLAYER_NAME,cls:S.cls,race:S.race||'',rk:S.rank||0})}
+function setPlayerName(t){S.name=t;PLAYER_NAME=t;save();netSendProfile();updateDisplay();refreshPanel()}
+function renameUi(){const n=prompt('Tên hiển thị (1-20 ký tự):',PLAYER_NAME);if(n==null)return;const t=n.replace(/[<>&"'`]/g,'').trim().slice(0,20);if(!t)return showToast('Tên không hợp lệ');setPlayerName(t);showToast('Đã đổi tên: '+t)}
+function pvpLd(){const c=S.cls;return{cls:c,race:S.race||'',lv:S.mech[c]||1,pl:S.petLv[S.pet]||1,pet:S.pet,eq:Object.keys(S.eq||{}).map(k=>S.eq[k]).filter(id=>id&&S.gear[id]),sk:(S.skills[c]||[1,1,1]).slice(0,3)}}
+function pvpLdDebounce(){if(!RMS.code)return;clearTimeout(PVX.ldT);PVX.ldT=setTimeout(()=>{if(RMS.code&&NET.open&&!(G&&G.running))netSend({t:'rrdy',ld:pvpLd()})},400)}
+
+/* ---------- màn hình phòng ---------- */
+function roomOpen(){if(!NET.open)showToast('Đang kết nối máy chủ…');roomShow(RMS.code?'room':'hub')}
+function roomClose(){$('roomScreen').classList.remove('active')}
+function roomShow(v){
+ if(v==='room'&&!RMS.code)v='hub';
+ RVV=v;$('roomScreen').classList.add('active');
+ $('rvHub').style.display=v==='hub'?'flex':'none';
+ $('rvRoom').style.display=v==='room'?'flex':'none';
+ $('rvCode').style.display=(v==='room'&&RMS.code)?'':'none';
+ if(v==='hub'){$('rvTitle').innerText='🎮 PHÒNG PvP ONLINE';roomListReq();roomRenderList();rcfRender()}
+ else roomRender();
+}
+function rmReset(){Object.assign(RMS,{code:'',host:'',you:'',st:'waiting',mem:[],bots:0,cap:8});PVX.chat=[];PVX.myRdy=false}
+function rcfClamp(){const c=PVP_CFG[RCF.mode]||PVP_CFG.dm;let s=RCF.size|0;if(!s)s=c[1];RCF.size=clamp(s,c[0],c[1]);RCF.bots=clamp(RCF.bots|0,0,RCF.size-1)}
+function rcfRender(){
+ $('rcMode').value=RCF.mode;$('rcSize').innerText=RCF.size;$('rcBots').innerText=RCF.bots;
+ for(const [k,id] of [['fill','rcFill'],['fair','rcFair'],['priv','rcPriv']]){const b=$(id);b.innerText=RCF[k]?'BẬT':'TẮT';b.classList.toggle('on',!!RCF[k])}
+}
+function rcfMode(v){RCF.mode=PVP_CFG[v]?v:'dm';rcfClamp();rcfRender()}
+function rcfStep(k,d){if(k==='size')RCF.size+=d;else RCF.bots+=d;rcfClamp();rcfRender()}
+function rcfToggle(k){RCF[k]=!RCF[k];rcfRender()}
+function pvpInit(){
+ $('rcMode').innerHTML=PVP_KEYS.map(k=>`<option value="${k}">${MODES[k].ico} ${MODES[k].name}</option>`).join('');
+ rcfClamp();rcfRender();
+}
+function roomCreate(){
+ if(!NET.open)return showToast('Chưa kết nối máy chủ');
+ if(RMS.code)return showToast('Bạn đang ở trong phòng');
+ netSend(Object.assign({t:'rc',ld:pvpLd()},RCF));
+}
+function roomJoinCode(){const c=String($('rjCode').value||'').trim().toUpperCase();if(!/^[A-Z0-9]{4}$/.test(c))return showToast('Mã phòng gồm 4 ký tự');roomJoin(c)}
+function roomJoin(c){
+ if(!NET.open)return showToast('Chưa kết nối máy chủ');
+ if(RMS.code)return showToast('Bạn đang ở trong phòng');
+ netSend({t:'rj',code:c});netSend({t:'rrdy',ld:pvpLd()});
+}
+function roomListReq(){if(NET.open)netSend({t:'rlist'})}
+function pvpOnRlist(d){PVX.rooms=Array.isArray(d.rooms)?d.rooms:[];PVX.online=+d.online||0;if(RVV==='hub'&&$('roomScreen').classList.contains('active'))roomRenderList()}
+function roomRenderList(){
+ const L=PVX.rooms||[];
+ $('rvList').innerHTML=(L.length?L.map(r=>{
+  const M=MODES[r.mode]||MODES.dm,full=r.st!=='waiting'||r.h>=r.cap;
+  return `<div class="rm-row ${full?'full':''}"><div class="mi">${M.ico}</div><div class="grow"><div style="font-weight:800;font-size:12px">${escH(M.name)}</div><div class="sub">Chủ: ${escH(r.ho)} · ${r.h}/${r.cap} người${r.bots?` · ${r.bots} bot`:''} · ${r.st==='waiting'?'Đang chờ':'Đang thi đấu'}</div></div><button class="rs-tg" ${full?'disabled':''} onclick="roomJoin('${escH(r.c)}')">VÀO</button></div>`;
+ }).join(''):'<div class="sub">Chưa có phòng công khai. Hãy tạo phòng mới!</div>')+`<div class="sub" style="margin-top:4px">Đang online: ${PVX.online}</div>`;
+}
+function pvpOnRoom(d){
+ if(!d||typeof d.c!=='string')return;
+ const was=RMS.code;
+ Object.assign(RMS,{code:d.c,host:String(d.host||''),you:String(d.you||''),mode:PVP_CFG[d.mode]?d.mode:'dm',size:+d.size||8,bots:+d.bots||0,cap:+d.cap||1,fill:!!d.fill,fair:!!d.fair,priv:!!d.priv,st:d.st||'waiting',mem:Array.isArray(d.mem)?d.mem:[]});
+ if(!was){PVX.chat=[];PVX.myRdy=false;if(!(G&&G.running))roomShow('room');return}
+ if(G&&G.running)return;
+ if($('roomScreen').classList.contains('active')&&RVV==='room')roomRender();
+}
+function roomRender(){
+ if(RVV!=='room'||!$('roomScreen').classList.contains('active')||!RMS.code)return;
+ const me=RMS.you,host=RMS.host===me,M=MODES[RMS.mode]||MODES.dm,kind=pvpKind(RMS.mode);
+ const mine=RMS.mem.find(m=>m.id===me),myRdy=!!(mine&&mine.rd);
+ $('rvTitle').innerText=`${M.ico} ${M.name}`;
+ $('rvCode').innerText='MÃ '+RMS.code;
+ let h='';
+ for(const m of RMS.mem){
+  const isH=m.id===RMS.host,cls=CLASSES[m.cls]||CLASSES.sword,rd=isH||!!m.rd;
+  h+=`<div class="rs-mem ${m.id===me?'you':''}">${host&&!isH?`<button class="rs-x" onclick="roomKick('${escH(m.id)}')">✕</button>`:''}<div class="rs-ava">${isH?'👑':'🧑'}</div><div class="rs-nm">${escH(m.n)}${m.id===me?' (Bạn)':''}</div><div class="rs-sub">${cls.ico} ${cls.style}</div>${kind==='team'?`<div class="rs-sub" style="color:${m.tm?'#f87171':'#38bdf8'}">${m.tm?'Đội Đỏ':'Đội Xanh'}</div>`:''}<div class="rs-sub" style="color:${rd?'#4ade80':'#fbbf24'}">${isH?'Chủ phòng':rd?'✅ Sẵn sàng':'⏳ Chưa sẵn sàng'}</div></div>`;
+ }
+ const humans=RMS.mem.length,botN=RMS.fill?Math.max(0,RMS.size-humans):RMS.bots;
+ for(let i=0;i<botN;i++)h+=`<div class="rs-mem bot"><div class="rs-ava">🤖</div><div class="rs-nm">Bot ${i+1}</div><div class="rs-sub">AI chiến đấu</div></div>`;
+ for(let i=0;i<Math.max(0,RMS.size-humans-botN);i++)h+=`<div class="rs-mem empty"><div class="rs-ava">＋</div><div class="rs-sub">Chỗ trống</div></div>`;
+ $('rvMem').innerHTML=h;
+ if(host){
+  const opts=PVP_KEYS.map(k=>`<option value="${k}" ${k===RMS.mode?'selected':''}>${MODES[k].ico} ${MODES[k].name}</option>`).join('');
+  $('rvCfg').innerHTML=`<select class="rs-sel" style="width:100%;height:30px;margin-bottom:6px" onchange="roomCfgSend({mode:this.value})">${opts}</select>
+   <div class="rs-cfg">
+    <span>Tổng chiến binh</span><div class="rs-step"><button onclick="roomStep('size',-1)">−</button><b>${RMS.size}</b><button onclick="roomStep('size',1)">+</button></div>
+    <span>Bot thêm</span><div class="rs-step"><button onclick="roomStep('bots',-1)">−</button><b>${RMS.bots}</b><button onclick="roomStep('bots',1)">+</button></div>
+    <span>Tự điền bot</span><button class="rs-tg ${RMS.fill?'on':''}" onclick="roomToggle('fill')">${RMS.fill?'BẬT':'TẮT'}</button>
+    <span>Cân bằng chỉ số</span><button class="rs-tg ${RMS.fair?'on':''}" onclick="roomToggle('fair')">${RMS.fair?'BẬT':'TẮT'}</button>
+    <span>Phòng riêng (ẩn)</span><button class="rs-tg ${RMS.priv?'on':''}" onclick="roomToggle('priv')">${RMS.priv?'BẬT':'TẮT'}</button>
+   </div>
+   <div class="sub" style="margin-top:6px">${escH(String(M.desc||'').slice(0,160))}</div>`;
+ }else{
+  $('rvCfg').innerHTML=`<div style="font-weight:800;color:var(--accent-neon);margin-bottom:4px">${M.ico} ${escH(M.name)}</div><div class="sub">Tối đa ${RMS.size} chiến binh · Bot: ${RMS.fill?'tự điền':RMS.bots} · Cân bằng chỉ số: ${RMS.fair?'Bật':'Tắt'}</div><div class="sub" style="margin-top:6px">${escH(String(M.desc||'').slice(0,200))}</div>`;
+ }
+ const notReady=RMS.mem.filter(m=>m.id!==RMS.host&&!m.rd).map(m=>m.n);
+ const stTxt={waiting:'Đang chờ người chơi…',starting:'Đang dựng trận…',playing:'Đang thi đấu'}[RMS.st]||'';
+ $('rvInfo').innerHTML=`${stTxt}${host&&RMS.st==='waiting'&&notReady.length?`<br>Chưa sẵn sàng: ${escH(notReady.slice(0,4).join(', '))}`:''}<br>Người chơi: ${humans}/${RMS.cap} · Tổng chỗ: ${RMS.size}`;
+ let b='';
+ if(kind==='team'&&RMS.st==='waiting')b+=`<button class="rs-tg" onclick="roomTeam(0)">→ Đội Xanh</button><button class="rs-tg" onclick="roomTeam(1)">→ Đội Đỏ</button>`;
+ if(host)b+=`<button class="rs-big" ${RMS.st!=='waiting'?'disabled':''} onclick="roomStart()">⚡ BẮT ĐẦU TRẬN</button>`;
+ else b+=`<button class="rs-big ${myRdy?'':'alt'}" ${RMS.st!=='waiting'?'disabled':''} onclick="roomReady()">${myRdy?'HỦY SẴN SÀNG':'SẴN SÀNG'}</button>`;
+ b+=`<button class="rs-tg" onclick="roomLeave()">RỜI PHÒNG</button>`;
+ $('rvBtns').innerHTML=b;
+ roomRenderChat();
+}
+function roomRenderChat(){const el=$('rvChatLog');if(!el)return;el.innerHTML=PVX.chat.join('');el.scrollTop=el.scrollHeight}
+function roomChatSend(){
+ const i=$('rvChatIn'),t=String(i.value||'').replace(/[\u0000-\u001f]/g,'').trim();
+ if(!t||!NET.open)return;netSend({t:'chat',s:'r',m:t.slice(0,100)});i.value='';
+}
+function roomReady(){if(!RMS.code)return;const mine=RMS.mem.find(m=>m.id===RMS.you);netSend({t:'rrdy',v:!(mine&&mine.rd),ld:pvpLd()})}
+function roomStart(){netSend({t:'rst'})}
+function roomKick(id){netSend({t:'rk',id})}
+function roomTeam(tm){netSend({t:'rtm',tm})}
+function roomLeave(){if(RMS.code&&NET.open)netSend({t:'rl'});rmReset();roomShow('hub')}
+function roomCfgSend(p){
+ if(!RMS.code||!NET.open)return;
+ const o=Object.assign({mode:RMS.mode,size:RMS.size,bots:RMS.bots,fill:RMS.fill,fair:RMS.fair,priv:RMS.priv},p);
+ const c=PVP_CFG[o.mode]||PVP_CFG.dm;
+ o.size=clamp(+o.size||c[1],c[0],c[1]);o.bots=clamp(+o.bots||0,0,o.size-1);
+ netSend(Object.assign({t:'rcfg'},o));
+}
+function roomStep(k,d){if(RMS.host!==RMS.you)return;roomCfgSend({[k]:(k==='size'?RMS.size:RMS.bots)+d})}
+function roomToggle(k){if(RMS.host!==RMS.you)return;roomCfgSend({[k]:!RMS[k]})}
+function roomCopyCode(){if(!RMS.code)return;if(navigator.clipboard)navigator.clipboard.writeText(RMS.code).catch(()=>{});showToast('Mã phòng: '+RMS.code)}
+function pvpOnClose(reason){
+ const msg=reason==='kicked'?'Bạn đã bị chủ phòng đuổi khỏi phòng':reason==='host_left'?'Chủ phòng đã rời, phòng đã đóng':'Đã rời phòng';
+ const inMatch=!!(G&&G.net&&G.running);
+ rmReset();PVX.q=[];
+ if(inMatch)endGameUi();
+ showToast(msg);
+ if(!inMatch&&$('roomScreen').classList.contains('active'))roomShow('hub');
+}
+function pvpOnDisconnect(){
+ const had=!!RMS.code;rmReset();PVX.q=[];PVX.board=null;
+ if(G&&G.net&&G.running)endGameUi();
+ if(had)showToast('Mất kết nối máy chủ, đã rời phòng');
+ if($('roomScreen').classList.contains('active'))roomShow('hub');
+}
+function pvpOnChat(d){
+ const who=escH(d.n||'?'),txt=escH(d.m||'');
+ if(d.s==='r'){
+  PVX.chat.push(`<div style="font-size:11px"><span style="color:#c4b5fd">[Phòng] ${who}:</span> ${txt}</div>`);
+  if(PVX.chat.length>60)PVX.chat.shift();
+  if(RVV==='room')roomRenderChat();
+  return;
+ }
+ chatLog.push(`<div style="font-size:11px"><span style="color:var(--accent-neon)">[Thế Giới] ${who}:</span> ${txt}</div>`);
+ if(chatLog.length>60)chatLog.shift();
+ $('chatMessagePreview').innerText=`${d.n||'?'}: ${d.m||''}`;
+ const b=$('chatBoxFull');if(b){b.innerHTML=chatLog.join('');b.scrollTop=1e5}
+}
+function pvpHist(list){
+ if(!Array.isArray(list))return;
+ for(const e of list.slice(-20)){if(e&&typeof e.m==='string')chatLog.push(`<div style="font-size:11px"><span style="color:var(--accent-neon)">[Thế Giới] ${escH(e.n)}:</span> ${escH(e.m)}</div>`)}
+ while(chatLog.length>60)chatLog.shift();
+}
+
+/* ---------- chủ phòng: dựng trận ---------- */
+function pvpLo(ld,race){                       /* loadout người khác: chỉ nhận giá trị hợp lệ */
+ ld=ld&&typeof ld==='object'?ld:{};
+ const lv=clamp((ld.lv|0)||1,1,15),pl=clamp((ld.pl|0)||1,1,10);
+ const sk=Array.isArray(ld.sk)&&ld.sk.length===3?ld.sk.map(x=>clamp((x|0)||1,1,5)):[1,1,1];
+ return{lv,pl,pet:has(PETS,ld.pet)?ld.pet:'',eq:Array.isArray(ld.eq)?ld.eq.filter(id=>has(GEAR,id)).slice(0,6):[],sk,race:has(RACES,race)?race:''};
+}
+function pvpRoster(d){
+ const kind=pvpKind(d.mode),M=MODES[d.mode],plan=Array.isArray(d.bots)?d.bots.map(x=>Math.max(0,x|0)):[0],used=new Set(),keys=shuffle(CLS_KEYS);
+ let ci=0;
+ const bot=team=>{const cls=keys[ci++%keys.length];return{name:genBotName(cls,used),isBot:true,team,cls,race:RACE_KEYS[Math.floor(Math.random()*RACE_KEYS.length)],pet:botPet()}};
+ const r=[];
+ (Array.isArray(d.mem)?d.mem:[]).slice(0,8).forEach((m,i)=>{
+  const id=String(m.id),cls=CLS_KEYS.includes(m.cls)?m.cls:'sword',race=has(RACES,m.race)?m.race:'',name=String(m.n||'Người chơi').slice(0,20);
+  used.add(name);
+  r.push({name,isBot:false,human:true,pid:id,isYou:id===NET.id,team:kind==='team'?(m.tm===1?1:0):kind==='coop'?0:i,cls,race,lo:pvpLo(m.ld,race)});
+ });
+ if(kind==='ffa'){for(let i=0;i<(plan[0]||0);i++)r.push(bot(r.length))}
+ else if(kind==='team'){for(let i=0;i<(plan[0]||0);i++)r.push(bot(0));for(let i=0;i<(plan[1]||0);i++)r.push(bot(1))}
+ else{for(let i=0;i<(plan[0]||0);i++)r.push(bot(0));if(M.boss)r.push({name:'Hư Không Cự Ma',isBot:true,team:1,cls:'boss',boss:true})}
+ return r;
+}
+function pvpHostBuild(d){                     /* máy chủ báo: đủ người, bắt đầu dựng trận (chỉ chủ phòng nhận) */
+ if(!d||!PVP_CFG[d.mode]||!MODES[d.mode]||(G&&G.running))return;
+ const roster=pvpRoster(d);
+ netSend({t:'mst',mk:d.mode,pl:roster.filter(p=>p.human).map(p=>({id:p.pid})),
+  r:roster.map(p=>({n:p.name,b:p.isBot?1:0,p:p.pid||null,tm:p.team|0,c:p.cls,ra:p.race||'',bo:p.boss?1:0}))});
+ showVS(d.mode,roster,(mk,ro)=>startBattle(mk,ro,{host:true,fair:!!d.fair}));
+}
+function hostTick(now){
+ if(!G||G.net!=='host'||!NET.open||!G.running)return;
+ if(now-PVX.hLast<100)return;PVX.hLast=now;
+ if(G.over&&!G.resCalc)hostFinalize();
+ netSend(hostSnap());
+}
+function hostFinalize(){                      /* xếp hạng / thắng thua cho từng người (để người xem có kết quả riêng) */
+ G.resCalc=true;
+ const M=G.M,P=G.player,wt=G.draw?-1:(G.win?P.team:1-P.team),val=o=>M.crystal?(o.cr||0):(o.kills||0);
+ for(const f of G.f){
+  if(f.struct||f.neutral)continue;
+  if(M.ffa)f.rk=M.respawn?1+G.f.filter(o=>!o.struct&&!o.neutral&&val(o)>val(f)).length:(f.alive?1:(f.place||G.f.length));
+  else f.rk=f.place||0;
+  f.wn=M.ffa?f.rk===1:f.team===wt;
+  f.dr=!!G.draw;
+ }
+}
+function hostSnap(){                          /* trạng thái trận (JSON bắt đầu bằng {"t":"snap" để máy chủ chuyển tiếp nguyên văn) */
+ const pr=v=>Math.round((+v||0)*10)/10,fx=G.fxOut.splice(0,160);
+ return{t:'snap',tm:pr(G.time),W:G.W,th:THEMES.indexOf(G.theme),over:G.over?1:0,win:G.win?1:0,draw:G.draw?1:0,place:G.place|0,
+  ob:G.ob,haz:G.haz||null,moba:G.moba?{lanes:G.moba.lanes,camps:G.moba.camps}:null,
+  zone:G.zone?{cx:G.zone.cx,cy:G.zone.cy,r:pr(G.zone.r),phase:G.zone.phase,state:G.zone.state,timer:pr(G.zone.timer)}:null,
+  hill:G.hill||null,ht:pr(G.hillT),ct:pr(G.chaosT===undefined?25:G.chaosT),sc:G.sc,tk:G.tk,wave:G.wave|0,wt:pr(G.waveT),wd:G.waveDone?1:0,
+  bomb:G.bomb?{h:G.bomb.holder?G.bomb.holder.uid:null,t:pr(G.bomb.t)}:null,
+  f:G.f.map(f=>({u:f.uid,pid:f.pid||null,n:f.name,b:f.isBot?1:0,h:f.human?1:0,tm:f.team,c:f.cls,gl:f.c.glyph,co:f.c.color,x:pr(f.x),y:pr(f.y),fc:pr(f.facing),r:f.r,bo:f.boss?1:0,ph:f.phase||1,hp:Math.round(f.hp),mhp:Math.round(f.maxhp),al:f.alive?1:0,pu:f.pulse>0?1:0,st:f.st,k:f.kills|0,d:f.deaths|0,mi:f.minion?1:0,sv:f.struct?1:0,nx:f.nexus?1:0,ne:f.neutral?1:0,ln:f.lane,pk:f.petKey||null,ul:pr(f.ult),cd:f.cd,cr:f.cr|0,us:f.used||[],rk:f.rk|0,wn:f.wn?1:0,dr:f.dr?1:0,dl:f.dealt|0,dm:f.dummy?1:0,rc:f.race||''})),
+  p:G.p.map(p=>({x:pr(p.x),y:pr(p.y),vx:pr(p.vx),vy:pr(p.vy),r:p.r,life:pr(p.life),kind:p.kind,col:p.col,ang:pr(p.ang),spin:pr(p.spin)})),
+  z:G.z.map(z=>{const o=Object.assign({},z);delete o.owner;delete o.hit;return o}),
+  x:(G.xz||[]).map(z=>{const o=Object.assign({},z);delete o.owner;delete o.target;return o}),
+  pk:G.pk,fx};
+}
+function hostInput(d){                        /* input của người chơi từ xa */
+ if(!G||G.net!=='host'||typeof d.id!=='string')return;
+ const R=G.rin[d.id]||(G.rin[d.id]={mx:0,my:0,a:0,q:[]});
+ R.mx=clamp(+d.mx||0,-1,1);R.my=clamp(+d.my||0,-1,1);R.a=d.a?1:0;
+ if(Array.isArray(d.q))for(const k of d.q.slice(0,6)){if(R.q.length>=8)break;if(typeof k==='string'&&['a','s1','s2','ult','dash'].includes(k))R.q.push(k)}
+}
+function remoteControl(f){                    /* chủ phòng: điều khiển người chơi từ xa bằng input đã nhận */
+ const R=G.rin&&G.rin[f.pid];if(!R)return;
+ let x=R.mx,y=R.my;const l=Math.hypot(x,y);if(l>1){x/=l;y/=l}
+ f.mv.x=l>.12?x:0;f.mv.y=l>.12?y:0;
+ const t=nearestEnemy(f,430);
+ if(t)f.facing=angTo(f,t);else if(l>.15)f.facing=Math.atan2(y,x);
+ if(R.a)useSkill(f,'a',aimAngle(f));
+ while(R.q.length)useSkill(f,R.q.shift(),aimAngle(f));
+}
+function hostLeft(id){                        /* người chơi rời giữa trận: bot tiếp quản */
+ if(!G||G.net!=='host'||typeof id!=='string')return;
+ delete G.rin[id];
+ const f=G.f.find(x=>x.pid===id);
+ if(!f)return;
+ f.human=false;f.remote=false;f.isBot=true;f.pid=null;
+ pushFeed(`🤖 ${escH(f.name)} đã rời trận · bot tiếp quản`);
+}
+
+/* ---------- người xem: nhận trạng thái ---------- */
+function pvpMirrorStart(d){                   /* chủ phòng báo bắt đầu: hiện màn VS giống chủ phòng */
+ if(!d||!MODES[d.mk]||!Array.isArray(d.r)||(G&&G.running)||RMS.host===RMS.you)return;
+ const roster=d.r.slice(0,8).map(e=>({name:String(e.n||'').slice(0,20),isBot:!!e.b,human:!e.b,pid:e.p?String(e.p):null,isYou:!!e.p&&String(e.p)===NET.id,team:e.tm|0,cls:has(CLASSES,e.c)?e.c:'sword',race:has(RACES,e.ra)?e.ra:'',boss:!!e.bo}));
+ PVX.q=[];
+ showVS(d.mk,roster,mk=>startMirror(mk));
+}
+function startMirror(mk){
+ const M=MODES[mk];
+ G={M,mk,W:M.world,f:[],p:[],z:[],fx:[],pk:[],ob:[],xz:[],haz:null,moba:null,hill:null,zone:null,bomb:null,time:0,over:false,paused:false,running:true,shake:0,theme:THEMES[0],dlog:[],banT:0,dmgDealt:0,endDelay:0,cam:{x:0,y:0},orbit:0,sc:[0,0],tk:{0:0,1:0},wave:0,waveT:4,waveDone:false,hillT:0,chaosT:25,player:null,net:'mirror',mir:new Map(),hudReady:false,win:false,draw:false,place:0,fair:false,fxOut:null,rin:{}};
+ $('lobbyContainer').style.visibility='hidden';
+ $('gameScreen').classList.add('active');$('roomScreen').classList.remove('active');
+ $('pauseOverlay').classList.remove('show');$('resultScreen').classList.remove('show');
+ $('feed').innerHTML='';$('bossBar').style.display=M.boss?'block':'none';
+ resizeAll();PVX.q=[];
+ banner(M.zone?'🌪️ ĐẠI CHIẾN BẮT ĐẦU!':M.boss?'👹 HẠ GỤC CỰ MA!':'⚔️ CHIẾN!',2);
+ lastT=performance.now();requestAnimationFrame(loop);
+}
+function mirrorFighter(f,s){
+ const fresh=f.uid===undefined,c=has(CLASSES,s.c)?CLASSES[s.c]:CLASSES.sword;
+ Object.assign(f,{uid:s.u,pid:s.pid||null,name:String(s.n||''),isBot:!!s.b,human:!!s.h,isYou:!!s.pid&&s.pid===NET.id,team:s.tm|0,cls:s.c,
+  c:Object.assign({},c,{glyph:s.gl||c.glyph,color:s.co||c.color}),boss:!!s.bo,phase:s.ph||1,r:+s.r||20,hp:+s.hp||0,maxhp:Math.max(1,+s.mhp||1),alive:!!s.al,
+  pulse:s.pu?.15:0,st:s.st||{},kills:s.k|0,deaths:s.d|0,minion:!!s.mi,struct:!!s.sv,nexus:!!s.nx,neutral:!!s.ne,lane:s.ln,petKey:s.pk||null,
+  ult:+s.ul||0,cd:s.cd||{a:0,s1:0,s2:0,ult:0,dash:0},cr:s.cr|0,used:Array.isArray(s.us)?s.us:[],rk:s.rk|0,wn:!!s.wn,dr:!!s.dr,dl:s.dl|0,dummy:!!s.dm,race:typeof s.rc==='string'?s.rc:'',
+  tx:+s.x||0,ty:+s.y||0,tf:+s.fc||0});
+ if(fresh){f.x=f.tx;f.y=f.ty;f.facing=f.tf;f.mv={x:0,y:0}}
+ return f;
+}
+function mirrorSnap(d){
+ if(!G||G.net!=='mirror'||!d||!Array.isArray(d.f))return;
+ const prevHp=G.player?G.player.hp:null;
+ G.time=+d.tm||G.time;G.W=+d.W||G.W;if(THEMES[d.th])G.theme=THEMES[d.th];
+ if(Array.isArray(d.ob))G.ob=d.ob;
+ G.haz=d.haz||null;G.moba=d.moba||null;G.hill=d.hill||null;G.hillT=+d.ht||0;G.chaosT=+d.ct;G.zone=d.zone||null;
+ if(Array.isArray(d.sc))G.sc=d.sc;if(d.tk)G.tk=d.tk;G.wave=+d.wave||0;G.waveT=+d.wt||0;G.waveDone=!!d.wd;
+ G.pk=Array.isArray(d.pk)?d.pk:[];G.z=Array.isArray(d.z)?d.z:[];G.xz=Array.isArray(d.x)?d.x:[];G.p=Array.isArray(d.p)?d.p:[];
+ const nw=new Map(),list=[];
+ for(const s of d.f){if(!s||typeof s.u!=='number')continue;const f=mirrorFighter(G.mir.get(s.u)||{},s);nw.set(s.u,f);list.push(f)}
+ G.mir=nw;G.f=list;
+ G.bomb=d.bomb?{holder:nw.get(d.bomb.h)||null,t:+d.bomb.t||0}:null;
+ G.player=list.find(f=>f.isYou)||G.player||list[0]||null;
+ if(G.player&&prevHp!=null&&G.player.hp<prevHp){G.shake=Math.max(G.shake,5);$('hurt').style.opacity=.9;setTimeout(()=>$('hurt').style.opacity=0,120)}
+ if(Array.isArray(d.fx))for(const e of d.fx){if(e&&typeof e.k==='string'){e.t=0;G.fx.push(e)}}
+ if(G.fx.length>400)G.fx.splice(0,G.fx.length-400);
+ if(d.over&&!G.over){
+  G.over=true;G.endDelay=1.4;const me=G.player;
+  if(me){G.win=!!me.wn;G.draw=!!me.dr;G.place=me.rk|0;G.dmgDealt=me.dl|0}
+ }
+ if(!G.hudReady&&G.player){setupHud();G.hudReady=true}
+}
+function mirrorUpdate(dt){                    /* người xem: nội suy vị trí, tự chạy hiệu ứng ngắn */
+ G.time+=dt;G.orbit+=dt;
+ const k=1-Math.exp(-14*dt);
+ for(const f of G.f){f.x+=(f.tx-f.x)*k;f.y+=(f.ty-f.y)*k;f.facing+=angDiff(f.tf,f.facing)*k;f.pulse=Math.max(0,(f.pulse||0)-dt)}
+ for(const p of G.p){p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt;p.spin=(p.spin||0)+dt*12}
+ for(const z of G.z){z.t-=dt;if(z.dur!==undefined)z.dur-=dt}
+ if(G.banT>0){G.banT-=dt;if(G.banT<=0)$('banner').classList.remove('show')}
+ updateFx(dt);
+ if(G.over){G.endDelay-=dt;if(G.endDelay<=0&&!G.shown){G.shown=true;showResult()}}
+ const P=G.player;
+ if(P){G.shake=Math.max(0,G.shake-dt*30);G.cam.x+=(P.x-G.cam.x)*Math.min(1,dt*8);G.cam.y+=(P.y-G.cam.y)*Math.min(1,dt*8);updateHud()}
+}
+function mirrorInputTick(now){                /* người xem: gửi input lên chủ phòng ~20 lần/giây */
+ if(!G||G.net!=='mirror'||!NET.open||!G.running)return;
+ if(now-PVX.iLast<50)return;PVX.iLast=now;
+ let x=IN.jx,y=IN.jy;const k=IN.keys;
+ if(k.KeyD||k.ArrowRight)x+=1;if(k.KeyA||k.ArrowLeft)x-=1;if(k.KeyS||k.ArrowDown)y+=1;if(k.KeyW||k.ArrowUp)y-=1;
+ const q=PVX.q.splice(0,6);
+ netSend({t:'in',mx:+clamp(x,-1,1).toFixed(2),my:+clamp(y,-1,1).toFixed(2),a:(IN.atk||k.KeyJ)?1:0,q});
+}
+
 /* ---------- init ---------- */
 resizeAll();initParticles();animateParticles();updateDisplay();
-netConnect();netHud();/* MP-10 */
+netConnect();netHud();pvpInit();/* MP-10 */
 </script>
 </body>
 </html>
